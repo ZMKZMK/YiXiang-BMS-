@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>最美乡村后台管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="CountryOldStuff"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url().'style/admin/';?>css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url().'style/admin/';?>css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- font CSS -->
+    <!-- font-awesome icons -->
+    <link href="<?php echo base_url().'style/admin/';?>css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- js-->
+    <script src="<?php echo base_url().'style/admin/';?>js/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo base_url().'style/admin/';?>js/modernizr.custom.js"></script>
+    <!--animate-->
+    <link href="<?php echo base_url().'style/admin/';?>css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="<?php echo base_url().'style/admin/';?>js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!-- chart -->
+    <script src="<?php echo base_url().'style/admin/';?>js/Chart.js"></script>
+    <!-- //chart -->
+    <!-- Metis Menu -->
+    <script src="<?php echo base_url().'style/admin/';?>js/metisMenu.min.js"></script>
+    <script src="<?php echo base_url().'style/admin/';?>js/custom.js"></script>
+    <link href="<?php echo base_url().'style/admin/';?>css/custom.css" rel="stylesheet">
+    <!--//Metis Menu -->
+</head>
+<body class="cbp-spmenu-push" onload="iframe_change_height()" style="background-color: #f1f1f1">
+<div class="main-content">
+    <!-- main content start-->
+    <div id="page-wrapper" class="ifram_show" style="margin: 0 auto;padding: 0 2em 0;min-height: 768px;">
+        <div class="main-page general" data-example-id="hoverable-table">
+            <h3 class="title1">欢迎来到管理后台</h3>
+            <div class="panel-info widget-shadow">
+                <h4 class="title2">管理员基本信息 :</h4>
+                <table class="table table-hover home-info">
+                    <tbody>
+                    <tr>
+                        <td>管理员</td>
+                        <td><?php echo $this->session->loginname;?>(<?php echo $this->session->username;?>)</td>
+                    </tr>
+                    <tr>
+                        <td>登陆时间</td>
+                        <td><?php echo date('Y-m-d h:i:sa',$this->session->logintime)?></td>
+                    </tr>
+                    <tr>
+                        <td>客户端IP</td>
+                        <td><?php echo $this->input->ip_address();?></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h4 class="title2">服务器信息 :</h4>
+                <table class="table table-hover home-info">
+                    <tbody>
+                    <tr>
+                        <td>服务器环境</td>
+                        <td><?php echo $this->input->server('SERVER_SOFTWARE');?></td>
+                    </tr>
+                    <tr>
+                        <td>PHP版本</td>
+                        <td><?php echo PHP_VERSION;?></td>
+                    </tr>
+                    <tr>
+                        <td>服务器IP</td>
+                        <td><?php echo $this->input->server('SERVER_ADDR')?></td>
+                    </tr>
+                    <tr>
+                        <td>数据库信息</td>
+                        <td><?php $con=mysqli_connect("localhost","root","","countryoldstuff");echo mysqli_get_server_info($con);?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Classie -->
+<script src="<?php echo base_url().'style/admin/';?>js/classie.js"></script>
+<script>
+    function iframe_change_height() {
+        setTimeout(function () {
+            document.getElementsByClassName('ifram_show')[0].style.minHeight = "768px";
+        },10);
+    }
+</script>
+<script src="<?php echo base_url().'style/admin/';?>js/bootstrap.js"></script>
+</body>
+</html>

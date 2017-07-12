@@ -847,3 +847,54 @@ if ( ! function_exists('function_usable'))
 		return FALSE;
 	}
 }
+
+/*
+ * 下面是自定义函数
+ */
+
+/*
+ * 格式化打印函数
+ */
+function p($arr){
+    echo "<pre>";
+    print_r($arr);
+    echo "</pre>";
+}
+/*
+ * 成功提示函数
+ */
+function success($url,$msg){
+    header('Content-Type:text/html;charset=utf-8');
+    $url = site_url($url);
+    echo "<script type='text/javascript'>alert('$msg');location.href = '$url'</script>";
+    die;
+}
+function successful($url){
+    header('Content-Type:text/html;charset=utf-8');
+    $url = site_url($url);
+    echo "<script type='text/javascript'>location.href = '$url'</script>";
+    die;
+}
+function father_successful($url){
+    header('Content-Type:text/html;charset=utf-8');
+    $url = site_url($url);
+    echo "<script type='text/javascript'>top.window.location.href = '$url'</script>";
+    die;
+}
+/*
+ * 错误提示函数
+ */
+function error($msg){
+    header('Content-Type:text/html;charset=utf-8');
+    echo "<script type='text/javascript'>alert('$msg');window.history.back();</script>";
+    die;
+}
+
+/*
+ * 自动清楚空格和换行
+ */
+function trimall($str){
+    $qian=array(" ","　","\t","\n","\r");
+    return str_replace($qian, '', $str);
+}
+

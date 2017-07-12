@@ -1,4 +1,4 @@
-@import url(http://fonts.useso.com/css?family=Source+Sans+Pro:200,300);
+/*@import url(http://fonts.useso.com/css?family=Source+Sans+Pro:200,300);*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,6 +9,8 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+  /*overflow-y:scroll;*/
+  overflow-y:visible;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -52,10 +54,16 @@ body :-ms-input-placeholder {
 }
 
 .wrapper.form-success .container h1 {
-  -webkit-transform: translateY(85px);
-      -ms-transform: translateY(85px);
-          transform: translateY(85px);
+  -webkit-transform: translateY(105px);
+      -ms-transform: translateY(105px);
+          transform: translateY(105px);
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  opacity: 0;
 }
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -63,15 +71,15 @@ body :-ms-input-placeholder {
   height: 400px;
   text-align: center;
   top: 50%;
-  margin-top: -200px;
+  margin-top: -300px;
   position: relative;
 }
 .container h1 {
   font-size: 40px;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
-  -webkit-transition-timing-function: ease-in-put;
-          transition-timing-function: ease-in-put;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
   font-weight: 200;
 }
 form {
@@ -234,4 +242,26 @@ form button:hover {
     -webkit-transform: translateY(-700px) rotate(600deg);
             transform: translateY(-700px) rotate(600deg);
   }
+}
+
+
+/**
+**验证码
+ */
+.captcha{
+  text-align: center;
+}
+.captcha input{
+  width: 143px;
+  display: inline;
+  vertical-align: top;
+}
+.captcha input:focus {
+  background-color: white;
+  color: #53e3a6;
+  width: 145px;
+}
+.captcha img{
+  /*padding: 10px 15px;*/
+  /*margin: 0 auto 10px auto;*/
 }

@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>承启艺乡</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>承启艺乡</title>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'style/admin/login/';?>css/styles.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'style/admin/login/';?>css/styles.css">
 
 </head>
 <body>
@@ -14,38 +14,55 @@
 
 <div class="wrapper">
 
-	<div class="container">
-		<h1>——承启艺乡——</h1>
-		<h2>后台管理系统</h2>
-		<form class="form">
-			<input type="text" placeholder="用户名">
-			<input type="password" placeholder="密码">
-			<button type="submit" id="login-button">登录</button>
-		</form>
-	</div>
-	
-	<ul class="bg-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-	
+    <div class="container">
+        <h1>——承启艺乡——</h1>
+        <h2>后台管理系统</h2>
+        <form class="form" action="<?php echo site_url('admin/login/login_in')?>" method="post">
+            <input type="text" placeholder="用户名" name="loginname" required='required'>
+            <input type="password" placeholder="密码" name="password" required='required'>
+            <!-- 验证码-->
+            <div class="captcha">
+                <input type="text" value="" placeholder="验证码" name="captcha">
+                <?php echo $captcha;?>
+            </div>
+            <!-------->
+            <button type="submit" id="login-button">登录</button>
+        </form>
+    </div>
+
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
 </div>
 
 <script type="text/javascript" src="<?php echo base_url().'style/admin/login/';?>js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
-$('#login-button').click(function(event){
-	event.preventDefault();
-	$('form').fadeOut(500);
-	$('.wrapper').addClass('form-success');
-});
+    $('#login-button').click(function (event) {
+        if (!($('input[name = "loginname"]').val()=="") && !($('input[name = "password"]').val()=="")) {
+            event.preventDefault();
+            $('form').fadeOut(500);
+            $('h2').fadeOut(500);
+            $('.wrapper').addClass('form-success');
+            setTimeout(function () {
+                $('.container h1').html("——登陆中——");
+                document.getElementsByClassName('container')[0].getElementsByTagName('h1')[0].style.opacity = "1";
+                setTimeout(function () {
+                    $('.form').submit();
+                }, 500);
+            }, 1000);
+
+        }
+    });
 </script>
 
 </body>

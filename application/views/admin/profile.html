@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>最美乡村后台管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="CountryOldStuff"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url().'style/admin/';?>css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url().'style/admin/';?>css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- font CSS -->
+    <!-- font-awesome icons -->
+    <link href="<?php echo base_url().'style/admin/';?>css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- js-->
+    <script src="<?php echo base_url().'style/admin/';?>js/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo base_url().'style/admin/';?>js/modernizr.custom.js"></script>
+    <!--animate-->
+    <link href="<?php echo base_url().'style/admin/';?>css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="<?php echo base_url().'style/admin/';?>js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!-- chart -->
+    <script src="<?php echo base_url().'style/admin/';?>js/Chart.js"></script>
+    <!-- //chart -->
+    <!-- Metis Menu -->
+    <script src="<?php echo base_url().'style/admin/';?>js/metisMenu.min.js"></script>
+    <script src="<?php echo base_url().'style/admin/';?>js/custom.js"></script>
+    <link href="<?php echo base_url().'style/admin/';?>css/custom.css" rel="stylesheet">
+    <!--//Metis Menu -->
+</head>
+<body class="cbp-spmenu-push" onload="iframe_change_height()" style="background-color: #f1f1f1">
+<div class="main-content">
+    <!-- main content start-->
+    <div id="page-wrapper" class="ifram_show" style="margin: 0 auto;padding: 0 2em 0;min-height: 768px;">
+        <div class="main-page">
+            <div class="forms validation">
+                <div class="row" style="">
+                    <div class="col-md-6 validation-grids widget-shadow" data-example-id="basic-forms">
+                        <div class="form-title">
+                            <h4>信息设置 :</h4>
+                        </div>
+                        <div class="form-body">
+                            <form data-toggle="validator" action="<?php echo site_url('admin/login/change_admin_info')?>" method="post">
+                                <div class="form-group">
+                                    <span class="help-block">登陆账号: </span>
+                                    <input type="text" class="form-control" id="inputName" placeholder="登陆账号"
+                                           name="change_loginname"
+                                           value="<?php  echo $this->session->loginname;?>"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <span class="help-block">登陆密码: </span>
+                                    <input type="password" class="form-control" id="inputPasswordConfirm"
+                                           name="change_password"
+                                           data-match="#inputPassword"
+                                           data-match-error="Whoops, these don't match" placeholder="登陆密码"
+                                           value="<?php  echo $this->session->password;?>"
+                                           required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary abled">保存</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Classie -->
+<script src="<?php echo base_url().'style/admin/';?>js/classie.js"></script>
+<script>
+    function iframe_change_height() {
+        setTimeout(function () {
+            document.getElementsByClassName('ifram_show')[0].style.minHeight = "768px";
+        },10);
+    }
+</script>
+<script src="<?php echo base_url().'style/admin/';?>js/bootstrap.js"></script>
+</body>
+</html>
