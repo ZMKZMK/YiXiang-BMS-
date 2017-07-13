@@ -15,7 +15,7 @@ class Login extends CI_Controller
     {
         parent::__construct();
         $this->load->model('login_model');//登陆操作--模型
-        $this->load->model('admin_model');//登陆操作--模型
+        $this->load->model('admin_model');//管理员操作--模型
     }
 
 

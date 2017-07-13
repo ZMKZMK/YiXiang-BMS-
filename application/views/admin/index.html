@@ -45,96 +45,96 @@
         <div class="navbar-collapse">
             <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                 <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="index.html" class="active"><i class="fa fa-home nav_icon"></i>首页</a>
+                    <li class="nav_station">
+                        <a href="index.html" class="nav_station active"><i class="fa fa-home nav_icon"></i>首页</a>
                     </li>
-                    <li>
+                    <li class="nav_station">
                         <a href="#"><i class="fa fa-cogs nav_icon"></i>前台页面管理
                             <!--<span class="nav-badge">12</span> -->
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level collapse">
-                            <li>
-                                <a href="grids.html">展示页</a>
+                            <li  style="cursor: pointer" onclick="change_iframe_src('<?php echo site_url().'/admin/adminhome/index_show_exhibition';?>')">
+                                <button class="nav_station">展示页</button>
                             </li>
                             <li>
-                                <a href="media.html">推荐页</a>
+                                <a class="nav_station" href="media.html">推荐页</a>
                             </li>
                         </ul>
                         <!-- /nav-second-level -->
                     </li>
-                    <li class="">
+                    <li class="nav_station">
                         <a href="#"><i class="fa fa-book nav_icon"></i>前台总分类信息<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="general.html">前台分类管理
+                                <a class="nav_station" href="general.html">前台分类管理
                                     <!--<span class="nav-badge-btm">08</span>-->
                                 </a>
                             </li>
                             <li>
-                                <a href="typography.html">前台分类添加</a>
+                                <a class="nav_station" href="typography.html">前台分类添加</a>
                             </li>
                         </ul>
                         <!-- /nav-second-level -->
                     </li>
-                    <li>
-                        <a href="widgets.html"><i class="fa fa-th-large nav_icon"></i>前台分类板块管理
+                    <li class="nav_station">
+                        <a class="nav_station" href="widgets.html"><i class="fa fa-th-large nav_icon"></i>前台分类板块管理
                             <!--<span class="nav-badge-btm">08</span>-->
                         </a>
                     </li>
-                    <li>
+                    <li class="nav_station">
                         <a href="#"><i class="fa fa-envelope nav_icon"></i>前台用户信息<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="inbox.html">前台用户管理
+                                <a class="nav_station" href="inbox.html">前台用户管理
                                     <!--<span class="nav-badge-btm">05</span>-->
                                 </a>
                             </li>
                             <li>
-                                <a href="compose.html">前台用户添加</a>
+                                <a class="nav_station" href="compose.html">前台用户添加</a>
                             </li>
                         </ul>
                         <!-- //nav-second-level -->
                     </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-table nav_icon"></i>后台管理员信息
+                    <li class="nav_station">
+                        <a class="nav_station" href="tables.html"><i class="fa fa-table nav_icon"></i>后台管理员信息
                             <!--<span class="nav-badge">05</span>-->
                         </a>
                     </li>
-                    <li>
+                    <li class="nav_station">
                         <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="forms.html">Basic Forms
+                                <a class="nav_station" href="forms.html">Basic Forms
                                     <!--<span class="nav-badge-btm">07</span>-->
                                 </a>
                             </li>
                             <li>
-                                <a href="validation.html">Validation</a>
+                                <a class="nav_station" href="validation.html">Validation</a>
                             </li>
                         </ul>
                         <!-- //nav-second-level -->
                     </li>
-                    <li>
+                    <li class="nav_station">
                         <a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages
                             <!--<span class="nav-badge-btm">02</span>-->
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="login.html">Login</a>
+                                <a class="nav_station" href="login.html">Login</a>
                             </li>
                             <li>
-                                <a href="signup.html">SignUp</a>
+                                <a class="nav_station" href="signup.html">SignUp</a>
                             </li>
                             <li>
-                                <a href="blank-page.html">Blank Page</a>
+                                <a class="nav_station" href="blank-page.html">Blank Page</a>
                             </li>
                         </ul>
                         <!-- //nav-second-level -->
                     </li>
-                    <li>
-                        <a href="charts.html" class="chart-nav"><i class="fa fa-bar-chart nav_icon"></i>Charts <span
+                    <li class="nav_station">
+                        <a class="nav_station" href="charts.html" class="chart-nav"><i class="fa fa-bar-chart nav_icon"></i>Charts <span
                                 class="nav-badge-btm pull-right">new</span></a>
                     </li>
                 </ul>
@@ -354,15 +354,16 @@
     </div>
     <!-- //header-ends -->
     <!-- main content start-->
-    <div id="page-wrapper">
+    <div id="page-wrapper" >
         <iframe sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts"
                 src="<?php echo site_url('/admin/adminhome/show_home');?>"
                 seamless
                 width="100%"
                 height="768px"
                 frameborder="0"
-                scrolling="NO"
+                scrolling="yes"
                 id="main_iframe"
+                onclick="scroll_listener()"
                 >
         </iframe>
     </div>
@@ -376,10 +377,44 @@
 <!-- Classie -->
 <script src="<?php echo base_url().'style/admin/';?>js/classie.js"></script>
 <script>
+
+    /**
+     * 实现iframe页面跳转函数
+     * @param url ：跳转的地址
+     */
     function change_iframe_src(url) {
         document.getElementById("main_iframe").src=url;
     }
-    
+    /**end*/
+
+    /**
+     * 去除导航栏所有<a>的active【class】
+     */
+//    window.onload = function remove_active_class() {
+//        $(".nav_station").removeClass("active");
+//    };
+
+//    /**
+//     * iframe滚轮滚动父类窗口
+//     */
+//    function scroll_listener() {
+//        alert("aa");
+//        $('#main_iframe', window.parent.document).scrollTop(0,0);
+////        var p=0;
+////        var t=0;
+////        p=$(this).scrollTop();
+////        if(t<=p){
+////            alert("上滚");
+////        }
+////        else{
+////            alert("下滚");
+////        }
+////        t = p;
+////                setTimeout(function(){t=p;},0)
+//    }
+
+
+
     var menuLeft = document.getElementById('cbp-spmenu-s1'),
         showLeftPush = document.getElementById('showLeftPush'),
         body = document.body;
@@ -399,8 +434,8 @@
     }
 </script>
 <!--scrolling js-->
-<!--<script src="<?php echo base_url().'style/admin/';?>js/jquery.nicescroll.js"></script>-->
-<!--<script src="<?php echo base_url().'style/admin/';?>js/scripts.js"></script>-->
+<script src="<?php echo base_url().'style/admin/';?>js/jquery.nicescroll.js"></script>
+<script src="<?php echo base_url().'style/admin/';?>js/scripts.js"></script>
 <!--//scrolling js-->
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url().'style/admin/';?>js/bootstrap.js"></script>

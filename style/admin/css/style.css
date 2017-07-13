@@ -124,6 +124,7 @@ button#showLeftPush:hover {
 	transition:.5s all;
 	-webkit-transition:.5s all;
 	-moz-transition:.5s all;
+
 }
 .cbp-spmenu-push.cbp-spmenu-push-toright div#page-wrapper {
     margin: 0;
@@ -2656,6 +2657,7 @@ i.fa.fa-facebook.profile-icon {
 	.cbp-spmenu-push div#page-wrapper {
 		margin: 0 0 0 17.4em;
 		padding: 6.5em 1.5em 2em;
+
 	}
 
 

@@ -15,6 +15,7 @@ class AdminHome extends MY_Controller
     {
         parent::__construct();
         $this->load->model('login_model');//登陆操作--模型
+        $this->load->model('admin_model');//管理员操作--模型
     }
 
     
@@ -27,6 +28,11 @@ class AdminHome extends MY_Controller
             $data['admin_data']['username'] = $this->session->userdata('username');
             $this->load->view('admin/index.html',$data);
     }
+
+
+    /*
+     * start：iframe页面
+     */
     /**
      * 后台首页显示
      */
@@ -35,11 +41,25 @@ class AdminHome extends MY_Controller
     }
 
     /**
-     * 后台管理员信息配置修改页面
+     * 后台管理员信息配置修改页面显示
      */
     public function change_profile(){
         $this->load->view('admin/profile.html');
     }
 
+    /***前台页面管理***/
+    /**
+     * 前台初始展示页面显示
+     */
+    public function index_show_exhibition(){
+        $this->load->view('admin/exhibition.html');
+    }
+
+
+    /***前台页面管理***/
+
+    /*
+     * end：iframe页面
+     */
 
 }
