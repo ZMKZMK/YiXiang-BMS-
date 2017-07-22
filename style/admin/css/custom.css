@@ -102,3 +102,12 @@
     }
 }
 
+/**
+展示页调整
+ */
+.exhibition_all_show{
+    width: 49%;
+    display: inline-block;
+    float: none;
+}
+

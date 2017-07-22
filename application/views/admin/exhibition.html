@@ -38,70 +38,114 @@
     <link href="<?php echo base_url().'style/admin/';?>css/custom.css" rel="stylesheet">
     <!--//Metis Menu -->
 </head>
-<body class="cbp-spmenu-push" style="background-color: #f1f1f1" onload="iframe_change_height()">
+<body class="cbp-spmenu-push" style="background-color: #f1f1f1">
 <div class="main-content">
     <!-- main content start-->
-    <div id="page-wrapper" class="ifram_show" style="margin: 0 auto;padding: 0 2em 0;min-height: 768px;">
-        <div class="main-page">
+    <div id="page-wrapper" class="ifram_show" style="margin: 0 auto;padding: 0 2em 0;">
             <div class="main-page general">
                 <h3 class="title1">——展示页——</h3>
                 <div class="panel-info widget-shadow">
                     <h4 class="title2">图片与内容管理 :</h4>
-                    <div class="col-md-4 panel-grids">
+                    <?php foreach($exhibition_info as $v): ?>
+                    <div class="col-md-4 panel-grids exhibition_all_show">
                         <div class="panel panel-success">
-                            <div class="panel-heading"><h3 class="panel-title">Panel Success</h3></div>
-                            <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                                iaculis quam sit amet nisi dictum, in iaculis dolor lobortis. Aenean placerat purus non
-                                faucibus.
+                            <div class="panel-heading">
+                                <img width="100%" height="100%"
+                                     src="<?php echo base_url().'source/exhibition_image/'.$v['picname']?>"
+                                     alt="<?php echo $v['mid'];?>"
+                                     style="margin: 10px 0"
+                                >
+                                <h3 class="panel-title">
+                                    <?php echo $v['pictitle'];?>
+                                </h3>
+                            </div>
+                            <div class="panel-body" id="<?php echo $v['mid'];?>">
+                                <?php echo $v['picbrief'];?>
                             </div>
                             <h2>
-                                <a href="#"><span class="label label-success">文字修改</span></a>
+                                <a href="javascript:void(0);"
+                                   onclick="change_exhibition_brief('<?php echo $v['picbrief'];?>',<?php echo $v['mid'];?>)"
+                                >
+                                    <span class="label label-success">
+                                        文字修改
+                                    </span>
+                                </a>
                             </h2>
                         </div>
                     </div>
-                    <div class="col-md-4 panel-grids">
-                        <div class="panel panel-success">
-                            <div class="panel-heading"><h3 class="panel-title">Panel Success</h3></div>
-                            <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                                iaculis quam sit amet nisi dictum, in iaculis dolor lobortis. Aenean placerat purus non
-                                faucibus.
-                            </div>
-                            <h2>
-                                <a href="#"><span class="label label-success">文字修改</span></a>
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="col-md-4 panel-grids">
-                        <div class="panel panel-success">
-                            <div class="panel-heading"><h3 class="panel-title">Panel Success</h3></div>
-                            <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                                iaculis quam sit amet nisi dictum, in iaculis dolor lobortis. Aenean placerat purus non
-                                faucibus.
-                            </div>
-                            <h2>
-                                <a href="#"><span class="label label-success">文字修改</span></a>
-                            </h2>
-                        </div>
-                    </div>
-
+                    <?php endforeach ?>
                     <div class="clearfix"></div>
                 </div>
-            </div>
-
-
         </div>
     </div>
 </div>
-<!-- Classie -->
-<script src="<?php echo base_url().'style/admin/';?>js/classie.js"></script>
+
 <script>
-    function iframe_change_height() {
-        setTimeout(function () {
-            document.getElementsByClassName('ifram_show')[0].style.minHeight = "768px";
-        }, 1);
+    function change_exhibition_brief(brief,mid) {
+        var str_1 = "<textarea type='text'" +
+            "required='required'" +
+            "placeholder='图片描述'" +
+            "style='width: 100%;border: none;padding: 7px 3px; resize: none'" +
+            "class='panel-body'"+
+            "rows='4" +
+            "'"+
+            ""+
+            ">"+
+            brief+
+            "</textarea>";
+        $("#"+mid).html(str_1);
+        var str_2 = "<a href='javascript:void(0);'"+
+                    "onclick='save_exhibition_brief("+
+                    mid+
+                    ")'"+
+                    ">"+
+                    "<span class='label label-success'>"+
+                    "保存"+
+                    "</span>"+
+                    "</a>";
+        $("#"+mid+"+h2").html(str_2);
+
+    }
+    function save_exhibition_brief(mid) {
+        var brief = $("#"+mid+">textarea").val();
+        var url = "<?php echo site_url('/admin/exhibition/save_exhibition_brief');?>";
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+                mid:mid,
+                brief:brief
+            },
+            dataType:"text",
+            success: function (data) {
+                $("#"+mid).html(brief);
+                var str_1 = "<a href='javascript:void(0);'"+
+                    "onclick= change_exhibition_brief('"+
+                    brief+
+                    "',"+
+                    mid+
+                    ")"+
+                    ">"+
+                    "<span class='label label-success'>"+
+                    "文字修改"+
+                    "</span>"+
+                    "</a>";
+                $("#"+mid+"+h2").html(str_1);
+
+            },
+            error: function (msg) {//ajax请求失败后触发的方法
+                alert("错误");//弹出错误信息
+            }
+        });
+
     }
 </script>
-
+<!-- Classie -->
+<script src="<?php echo base_url().'style/admin/';?>js/classie.js"></script>
+<!--scrolling js-->
+<script src="<?php echo base_url().'style/admin/';?>js/jquery.nicescroll.js"></script>
+<script src="<?php echo base_url().'style/admin/';?>js/scripts.js"></script>
+<!--//scrolling js-->
 <script src="<?php echo base_url().'style/admin/';?>js/bootstrap.js"></script>
 </body>
 </html>

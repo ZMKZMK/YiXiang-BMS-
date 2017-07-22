@@ -1,5 +1,5 @@
-login.html
-index.html
-profile.html
-home.html
-exhibition.html
+login.html  后台登陆
+index.html  后台框架
+profile.html  后台管理员信息修改
+home.html  后台首页 
+exhibition.html  前台首页管理

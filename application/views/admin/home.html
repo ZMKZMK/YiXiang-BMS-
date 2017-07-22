@@ -38,10 +38,10 @@
     <link href="<?php echo base_url().'style/admin/';?>css/custom.css" rel="stylesheet">
     <!--//Metis Menu -->
 </head>
-<body class="cbp-spmenu-push" onload="iframe_change_height()" style="background-color: #f1f1f1">
+<body class="cbp-spmenu-push" style="background-color: #f1f1f1">
 <div class="main-content">
     <!-- main content start-->
-    <div id="page-wrapper" class="ifram_show" style="margin: 0 auto;padding: 0 2em 0;min-height: 768px;">
+    <div id="page-wrapper" class="ifram_show" style="margin: 0 auto;padding: 0 2em 0;">
         <div class="main-page general" data-example-id="hoverable-table">
             <h3 class="title1">欢迎来到管理后台</h3>
             <div class="panel-info widget-shadow">
@@ -62,7 +62,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <h4 class="title2">服务器信息 :</h4>
+                <h4 class="title2" style="margin-top: 20px;">服务器信息 :</h4>
                 <table class="table table-hover home-info">
                     <tbody>
                     <tr>
@@ -90,14 +90,10 @@
 </div>
 <!-- Classie -->
 <script src="<?php echo base_url().'style/admin/';?>js/classie.js"></script>
-<script>
-    function iframe_change_height() {
-        setTimeout(function () {
-            document.getElementsByClassName('ifram_show')[0].style.minHeight = "768px";
-        },1);
-    }
-</script>
-
+<!--scrolling js-->
+<script src="<?php echo base_url().'style/admin/';?>js/jquery.nicescroll.js"></script>
+<script src="<?php echo base_url().'style/admin/';?>js/scripts.js"></script>
+<!--//scrolling js-->
 <script src="<?php echo base_url().'style/admin/';?>js/bootstrap.js"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@ class AdminHome extends MY_Controller
         parent::__construct();
         $this->load->model('login_model');//登陆操作--模型
         $this->load->model('admin_model');//管理员操作--模型
+        $this->load->model('exhibition_operation_model');//展示页操作--模型
     }
 
     
@@ -47,16 +48,21 @@ class AdminHome extends MY_Controller
         $this->load->view('admin/profile.html');
     }
 
-    /***前台页面管理***/
+    /***------前台页面管理------***/
     /**
      * 前台初始展示页面显示
      */
     public function index_show_exhibition(){
-        $this->load->view('admin/exhibition.html');
+        $data['exhibition_info'] = $this->exhibition_operation_model->show_info();
+        $this->load->view('admin/exhibition.html',$data);
     }
 
+    /**
+     *
+     */
 
-    /***前台页面管理***/
+
+    /***-------前台页面管理------***/
 
     /*
      * end：iframe页面

@@ -12,7 +12,7 @@ html, body{
   	font-family: 'Roboto Condensed', sans-serif;
     font-size: 100%;
   	overflow-x: hidden;
-	background: #fff;
+	background: #f1f1f1;
 }
 body a{
 	transition: 0.5s all ease;
@@ -2656,7 +2656,7 @@ i.fa.fa-facebook.profile-icon {
 
 	.cbp-spmenu-push div#page-wrapper {
 		margin: 0 0 0 17.4em;
-		padding: 6.5em 1.5em 2em;
+		padding: 85px 1.5em 7px;
 
 	}
 
